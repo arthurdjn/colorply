@@ -3,6 +3,8 @@
 Created on Sun Jul 14 10:17:54 2019
 
 @author: Cédric Perion | Arthur Dujardin
+
+Contains various useful functions
 """
 
 import plyfile
