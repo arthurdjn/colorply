@@ -5,8 +5,7 @@
 The aim of colorply is to add multi spectral wavelength informations (NIR, SIV, RED...) to an existing cloud of points. Colorply only treats Mic-Mac oriented images/files.
 
 ## Documentation
-A more detailed documentation can be found at: http://dias.ensg.eu/Terrain/. The project is saved with the name "Photogrammétrie multispectrale" and is written french.
-As this project was created in only two weeks with friends of mine, we did not had time to translate the report or add a more detailed documentation. However you can contact me on github, I will be pleased to answer your questions.
+A more detailed documentation can be found at: http://dias.ensg.eu/Terrain/. The project is saved with the name "Photogrammétrie multispectrale" and is written in french.
 
 ## Dependencies
 The code use PyQt5 for the interface, plyfile to manipulate cloud points and lxml to read properties of oriented images.
