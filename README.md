@@ -9,7 +9,7 @@ This package comes with a **GUI**, to make tasks easier if you are not used to *
 
 ### About
 
-This project alone was made in a week, in a bigger project of photogrammetry engineering. The whole project focused in testing and evaluating a multispectral camera, the *Parot Sequoia*. Then, a major part used this camera to generate multispectral 3D cloud of points for remote sensing purposes like vegetation classification, all in 3D. That's where me and a teammate created this add-on to the MicMac software (which is not compatible with more than 3-channels images). **Colorply** handles as many channels as you want, and complete an existing 3D points from multispectral images.
+This project alone was made in a week, in a bigger project of photogrammetry engineering. The whole project focused in testing and evaluating a multispectral camera, the *Parot Sequoia*. Then, a major part used this camera to generate multispectral 3D cloud of points for remote sensing purposes like vegetation classification, all in 3D. Because *MicMac* works only for RGB (or maximum 3-channels images), **Colorply** was created and handles as many channels as you want and complete an existing 3D points from multispectral images.
 
 ### Dependencies
 
