@@ -59,9 +59,6 @@ The interface is simple, but all options are linked !
 </p>
 
 
-## Example
-
-
 
 ## Licence
 The code is under the MIT licence
