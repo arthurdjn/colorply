@@ -50,6 +50,8 @@ If you are new to *MicMac*, take a look a the documentation https://github.com/m
 
 ### Colorply
 
+#### How it looks
+
 The interface is simple, but all options are linked !
 
 <p align="center">
@@ -57,6 +59,31 @@ The interface is simple, but all options are linked !
   <img src="img/colorply.gif">
   <br>
 </p>
+
+To use this package, simply 
+
+```python
+from colorply.ui import colorply_window
+
+colorply_window()
+```
+
+
+#### How it works
+
+The main algorithm is based on the so called *image formula*. This equation links 3D coordinates points to image coordinates points, and depends on the camera calibration (the rotation, the distorsion and PPS).
+
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?\Large&space;m=F-\frac{k^TFR^{-1}(M-S)}{k^TR^{-1}(M-S)}"/>
+</p>
+
+
+<p align="center">
+  <img src="img/imageformula.gif"/>
+</p>
+
+
 
 
 
