@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<DicoAppuisFlottant>
+     <OneAppuisDAF>
+          <Pt>984.611999999999966 1003.26700000000005 485.483000000000004</Pt>
+          <NamePt>101101</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.59699999999998 1001.375 485.139999999999986</Pt>
+          <NamePt>201102</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.609000000000037 998.951000000000022 485.192999999999984</Pt>
+          <NamePt>201103</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.644999999999982 996.769000000000005 485.641999999999996</Pt>
+          <NamePt>201104</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.620000000000005 1002.86699999999996 488.425000000000011</Pt>
+          <NamePt>101201</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.653999999999996 1001.12599999999998 488.351999999999975</Pt>
+          <NamePt>101202</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.660999999999945 999.214000000000055 488.302000000000021</Pt>
+          <NamePt>101203</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.658000000000015 999.101999999999975 488.389999999999986</Pt>
+          <NamePt>201203</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.644999999999982 996.591000000000008 488.380999999999972</Pt>
+          <NamePt>201204</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.664999999999964 996.559999999999945 488.269999999999982</Pt>
+          <NamePt>101204</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.61099999999999 1002.88900000000001 491.435999999999979</Pt>
+          <NamePt>101301</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.644000000000005 999.826999999999998 493.048000000000002</Pt>
+          <NamePt>101302</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+     <OneAppuisDAF>
+          <Pt>984.647000000000048 996.995000000000005 491.721000000000004</Pt>
+          <NamePt>101303</NamePt>
+          <Incertitude>0.01 0.01 0.01</Incertitude>
+     </OneAppuisDAF>
+</DicoAppuisFlottant>
