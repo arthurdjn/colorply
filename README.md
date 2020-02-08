@@ -15,7 +15,6 @@ This package comes with a **GUI**, to make tasks easier if you are not used to *
 
 The black and white image is the initial cloud of points created from one channel, RED.
 The colored image is the result of **Colorply**, adding the channel REG, NIR, GREEN.
-The displayed cloud of points is a combinaison of REG, NIR and GREEN channels.
 
 ### About
 
