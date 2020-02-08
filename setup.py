@@ -14,20 +14,20 @@ def readme_data():
 
 find_packages()
 
-setup(name='pynews',
+setup(name='colorply',
         version = '0.1',
-        description = 'Feed Forward Neural Network for document classifier.',
+        description = 'MicMac application for multispectral photogrammetry.',
         long_description = readme_data(),
         long_description_content_type = "text/markdown",
-        url = 'https://github.uio.no/arthurd/pynews',
-        author = 'Lotte Boerboom, Sigurd Hylin, Arthur Dujardin',
+        url = 'https://github.uio.no/arthurd/colorply',
+        author = 'Arthur Dujardin, Cédric Pério',
         author_email = 'arthur.dujardin@ensg.eu',
         license = 'Apache License-2.0',
 
-        install_requires = ['torch', 'numpy', 'pandas', 'pickle', 
-                        'sklearn', 'time'],
+        install_requires = ['matplotlib', 'os', 'numpy', 'plyfile', 
+                            'lxml', 'math', 'random', 'sys', 'PyQt5'],
         packages = find_packages(),
-        namespace_packages = ['pynews'],
+        namespace_packages = ['colorply'],
         zip_safe  =False,
         classifiers = [
         # How mature is this project? Common values are
@@ -38,7 +38,7 @@ setup(name='pynews',
     
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Natural Language Processing and Classification',
+        'Topic :: Software Development :: Multispectral photogrammetry',
     
         # Pick your license as you wish (should match "license" above)
     

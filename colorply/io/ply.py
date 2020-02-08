@@ -9,7 +9,6 @@ Contains reading and writing functions for ply files as well as a conversion fun
 
 
 
-import random as rd
 import numpy as np
 import plyfile
 
