@@ -70,7 +70,7 @@ colorply_window()
 
 #### How it works
 
-The main algorithm is based on the so called *image formula*. This equation links 3D coordinates points *M* to image coordinates points, and depends on the camera calibration (the rotation *R*, the distorsion and PPS *S*, focal length *F*).
+The main algorithm is based on the so called *image formula*. This equation links 3D coordinates points *M* to image coordinates points *m*, and depends on the camera calibration (the rotation *R*, the distorsion and PPS *S*, focal length *F*).
 
 
 <p align="center">
@@ -89,10 +89,33 @@ The red crosses represent the dense cloud points, computed from the RED channel.
 ## Application
 
 <p align="center">
-  <img src="img/"/>
+  <img src="img/image1.jpg"/>
 </p>
 
+### About
 
+This project was used for remote sensing classification from a multispectral camera. The camera *Parrot Sequoia* was first calibrated and tested on sample areas. Then, it was fixed to a civil drone and we flew over high altitudes forest to estimate the evolution of vegetation species. **Colorply** was used to create a multispectral cloud of points, to improve our classification by adding extra features. The clusters were made from a random forest skeleton, using all radiometries (RED, REG, NIR, GRE) and the points 3D positions.
+
+### Classification
+
+In this repository, you can run the classification on the provided data [here](test/data/result/RVB_GRE_RED_REG_NIR_NDVI.ply).
+For this short example (for fast processing), the classification results are described as follows :
+
+<p align="center">
+  <img src="img/result_4channels.gif" width="48%"/>
+  <img src="img/result_classif.gif" width="48%"/>
+</p>
+
+The confusion matrix for this sample is :
+
+|           | Terrain   | Oak       | Shrub     | Grass     |
+|-----------|-----------|-----------|-----------|-----------|
+|**Terrain**| **410**   | 0         | 0         | 16        |
+| **Oak**   | 0         | **260**   | 10        | 0         |
+| **Shrub** | 0         | 10        | **137**   | 16        |
+| **Grass** | 23        | 0         | 11        | **192**   |
+
+**Global accuracy : 92.07%.**
 
 ## Licence
 The code is under the MIT licence
