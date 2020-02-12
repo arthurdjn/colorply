@@ -70,19 +70,27 @@ colorply_window()
 
 #### How it works
 
-The main algorithm is based on the so called *image formula*. This equation links 3D coordinates points to image coordinates points, and depends on the camera calibration (the rotation, the distorsion and PPS).
+The main algorithm is based on the so called *image formula*. This equation links 3D coordinates points *M* to image coordinates points, and depends on the camera calibration (the rotation *R*, the distorsion and PPS *S*, focal length *F*).
 
 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.latex?\Large&space;m=F-\frac{k^TFR^{-1}(M-S)}{k^TR^{-1}(M-S)}"/>
 </p>
 
+To visualize this formula, let's consider this short animation :
 
 <p align="center">
   <img src="img/imageformula.gif"/>
 </p>
 
+The red crosses represent the dense cloud points, computed from the RED channel. These points are projected in NIR channel images. The radiometry at this location is then affected back to the points, adding an extra channel to the cloud.
 
+
+## Application
+
+<p align="center">
+  <img src="img/"/>
+</p>
 
 
 
