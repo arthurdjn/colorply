@@ -4,7 +4,7 @@
 
 ## Overview
 
-**Colorply** is an open source python application which add new wavelength channels to a 3D cloud of points from a set of referenced image and uses images calibration from MicMac. 
+**Colorply** is an open source python application which add new wavelength channels to a 3D cloud of points from a set of referenced images and uses images calibration from MicMac. 
 This package comes with a **GUI**, to make tasks easier if you are not used to *MicMac*.
 
 <p align="center">
