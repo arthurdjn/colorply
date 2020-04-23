@@ -11,17 +11,16 @@ from colorply.io.readxml import read_ori
 from colorply.process.image import Image
 
 
-
-def load_images(orientation_dir, image_dir = "", image_ext = "TIF", channel = "unknown") :
+def load_images(orientation_dir, image_dir="", image_ext="TIF", channel="unknown"):
     """ 
     Reads all images and returns a list of image objects
     
     """
-    try :
+    try:
         files = [f for f in listdir(image_dir) if (isfile(join(image_dir, f)) and f.split('.')[-1] == image_ext)]
-    except FileNotFoundError :
+    except FileNotFoundError:
         raise FileNotFoundError('The images were not found.')
-        
+
     images_loaded = []
 
     for file in files:
@@ -34,8 +33,8 @@ def load_images(orientation_dir, image_dir = "", image_ext = "TIF", channel = "u
     return images_loaded
 
 
-if __name__=="__main__" :
-    print(load_images(orientation_dir = "../../test/Ori-1bande_All_CampariGCP",
-                      image_dir = "../../test/GRE",
-                      image_ext = "TIF")
+if __name__ == "__main__":
+    print(load_images(orientation_dir="../../test/Ori-1bande_All_CampariGCP",
+                      image_dir="../../test/GRE",
+                      image_ext="TIF")
           )

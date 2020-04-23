@@ -9,7 +9,7 @@ This package comes with a **GUI**, to make tasks easier if you are not used to *
 
 <p align="center">
   <b>Multispectral Cloud of Points</b><br>
-  <img src="img/multicloud.gif">
+  <img src="img/cloud_points_all_wavelength.gif">
   <br>
 </p>
 
@@ -67,6 +67,32 @@ from colorply.ui import colorply_window
 colorply_window()
 ```
 
+If you prefer doing it manually, you can use the functional implementation:
+
+```python
+from colorply.process import add_cloud_channel
+
+# Load the 3D model
+input_ply = "test/data/result/RVB_GRE.ply"
+# Load MicMac calibration files
+calibration_file = "test/data/calibration/Ori-1bande_All_CampariGCP/AutoCal_Foc-4000_Cam-SequoiaSequoia-GRE.xml"
+# Load the orientation files for all images in the scene
+orientation_dir = "test/data/calibration/Ori-1bande_All_CampariGCP"
+# Load the images (corresponding to the orientation files)
+image_dir = "test/data/images/RED"
+# Additional arguments
+image_ext = "TIF"
+channel = "RED"
+# Resulting ply
+output_ply = "output.ply"
+
+# Project all points in `input_ply` to `images_dir`.
+# Create a new ply, the operation is not inplace.
+add_cloud_channel(input_ply, output_ply,
+                  calibration_file, orientation_dir, 
+                  image_dir, image_ext, channel)
+```
+
 
 #### How it works
 
@@ -79,7 +105,7 @@ The main algorithm is based on the so called *image formula*. This equation link
 
 
 <p align="center">
-  <img src="img/imageformula.gif"/>
+  <img src="img/image_formula.gif"/>
 </p>
 
 

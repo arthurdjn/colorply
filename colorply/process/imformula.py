@@ -6,8 +6,7 @@
 This modules contains the necessary functions to compute the image formula for each "ground" point.
 """
 
-import  numpy as np
-
+import numpy as np
 
 
 def image_formula(F, M, R, S):
@@ -32,12 +31,13 @@ def image_formula(F, M, R, S):
         Image coordinates of M projected.
     """
 
-    k = np.array([0,0,1])
+    k = np.array([0, 0, 1])
     R_inv = np.linalg.inv(R)
-    top = k.dot(F)*R_inv.dot(M-S)
-    bottom = k.dot(R_inv).dot(M-S)
-    
-    return F - top/bottom
+    top = k.dot(F) * R_inv.dot(M - S)
+    bottom = k.dot(R_inv).dot(M - S)
+
+    return F - top / bottom
+
 
 def radial_std(m_image, pps, a, b, c):
     """
@@ -65,19 +65,20 @@ def radial_std(m_image, pps, a, b, c):
 
     r = np.linalg.norm(m_image - pps)
 
-    rsquared= r*r
+    rsquared = r * r
     # We use HORNER to evaluate ar2+br4+cr6
     poly = c
-    poly = poly*rsquared + b
-    poly = poly*rsquared + a
-    poly = poly*rsquared
+    poly = poly * rsquared + b
+    poly = poly * rsquared + a
+    poly = poly * rsquared
     # HORNER DONE
     # Correction vector
-    dr = poly*(m_image - pps) 
-    
+    dr = poly * (m_image - pps)
+
     return m_image + dr
 
-def image_formula_corrected(F, M, R, S, pps, a, b, c) :
+
+def image_formula_corrected(F, M, R, S, pps, a, b, c):
     """
     Compute the image formula for the point M
     with distorsion.
@@ -106,28 +107,5 @@ def image_formula_corrected(F, M, R, S, pps, a, b, c) :
     numpy.ndarray
         Corrected point position.
     """
-    
-    return radial_std(image_formula(F, M, R, S), pps, a, b ,c)
 
-
-if __name__ == "__main__" :
-    from colorply import io
-
-    
-    calibxml = "example/Ori-Calib/AutoCal_Foc-24000_Cam-DSLRA850.xml"
-    F, pps, dist, size = io.readCalib(calibxml)   # F , PPS, coeffDistorsion
-    print("PPS : ", pps)
-    
-    nameIMGxml = "example/Ori-Calib/Orientation-Im3.JPG.xml"
-    R, S = io.readOri(nameIMGxml)   # F , PPS, coeffDistorsion
-    print(R, S)
-    
-    M = np.transpose(np.array([984.647, 996.995, 491.721]))
-    
-    m  = image_formula(F, M, R, S)
-    print("Projection of M in the image : ", m)
-    
-    a, b, c = dist[0], dist[1], dist[2]
-    print("radial_std : ", radial_std(m, pps, a, b, c))
-    
-    print("Formula image with distorsion : ", image_formula_corrected(F, M, R, S, pps, a, b, c))    
+    return radial_std(image_formula(F, M, R, S), pps, a, b, c)

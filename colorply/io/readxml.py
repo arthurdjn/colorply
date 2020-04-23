@@ -3,7 +3,6 @@
 # @author: Cédric Perion | Arthur Dujardin
 
 
-
 import numpy as np
 from lxml import etree
 
@@ -17,20 +16,20 @@ def read_orientation(nameIMGxml):
     :return : the rotation of the img
     :rtype : numpy array 3*3
     """
-    
+
     tree = etree.parse(nameIMGxml)
-    
-    #The lines of the matrix
+
+    # The lines of the matrix
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L1"):
-        #print(user.text)
+        # print(user.text)
         L1 = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L2"):
-        #print(user.text)
+        # print(user.text)
         L2 = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L3"):
-        #print(user.text)
+        # print(user.text)
         L3 = user.text.split(" ")
-        
+
     matrix_rotation = np.array([L1, L2, L3], float)
     return matrix_rotation
 
@@ -44,13 +43,13 @@ def read_S(nameIMGxml):
     :return :the center of the IMG
     :rtype : numpy array 1*3
     """
-    
+
     tree = etree.parse(nameIMGxml)
 
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/Centre"):
-        #print(user.text)
+        # print(user.text)
         S = user.text.split(" ")
-        
+
     center = np.array(S, float)
     return np.transpose(center)
 
@@ -65,26 +64,26 @@ def read_ori(nameIMGxml):
     :return : the rotation of the img, the center of the IMG
     :rtype : tuple(np.array(matrix rotation), np.array(coord S))
     """
-    
+
     tree = etree.parse(nameIMGxml)
-    #The lines of the matrix
+    # The lines of the matrix
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L1"):
-        #print(user.text)
+        # print(user.text)
         L1 = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L2"):
-        #print(user.text)
+        # print(user.text)
         L2 = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/ParamRotation/CodageMatr/L3"):
-        #print(user.text)
-        L3 = user.text.split(" ")    
-        
+        # print(user.text)
+        L3 = user.text.split(" ")
+
     matrix_rotation = np.array([L1, L2, L3], float)
-    
+
     for user in tree.xpath("/ExportAPERO/OrientationConique/Externe/Centre"):
-        #print(user.text)
+        # print(user.text)
         S = user.text.split(" ")
     center = np.array(S, float)
-    
+
     return matrix_rotation, center
 
 
@@ -101,15 +100,13 @@ def read_calib_F(calibxml):
     """
 
     tree = etree.parse(calibxml)
-    
+
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/PP"):
         PP = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/F"):
         F = user.text
     PP.append("-" + F)
     return np.transpose(np.array(PP, float))
-
-
 
 
 def read_calib_PPS(calibxml):
@@ -123,10 +120,10 @@ def read_calib_PPS(calibxml):
     """
 
     tree = etree.parse(calibxml)
-    
+
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CDist"):
         PPS = user.text.split(" ")
-    
+
     PPS.append("0")
     print(PPS)
     return np.transpose(np.array(PPS, float))
@@ -141,17 +138,18 @@ def read_calib_distorsion(calibxml):
     :return : distorsion coefficients a, b, c
     :rtype : numpy array 1*3
     """
-    
+
     tree = etree.parse(calibxml)
-    
+
     coeffDist = []
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CoeffDist"):
         coeffDist.append(user.text)
 
     return np.array(coeffDist, float)
 
+
 ##
-    
+
 def read_size(calibxml):
     """
     This function extract the size of an image from the xml file.
@@ -160,13 +158,14 @@ def read_size(calibxml):
     :return : the size of the image resolution
     :rtype : np.array
     """
-    
+
     tree = etree.parse(calibxml)
 
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/SzIm"):
         size = user.text.split(" ")
 
     return np.array(size, int)
+
 
 def read_calib(calibxml):
     """
@@ -177,31 +176,28 @@ def read_calib(calibxml):
     :return : F, PPS, distorsion coefficients a, b, c, size
     :rtype : tuple(F, PPS, [a,b,c], size)
     """
-    
+
     tree = etree.parse(calibxml)
-    
+
     coeffDist = []
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CoeffDist"):
         coeffDist.append(user.text)
     coeffDist = np.array(coeffDist, float)
-    
+
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CDist"):
-        PPS = user.text.split(" ")  
+        PPS = user.text.split(" ")
     PPS.append("0")
     PPS = np.array(PPS, float)
-    
+
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/PP"):
         PP = user.text.split(" ")
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/F"):
         F = user.text
     PP.append("-" + F)
     F = np.array(PP, float)
-    
+
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/SzIm"):
         size = user.text.split(" ")
     size = np.array(size, int)
 
     return F, PPS, coeffDist, size
-
-
-

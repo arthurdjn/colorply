@@ -3,16 +3,16 @@
 # @author: Cédric Perion | Arthur Dujardin
 
 
-
-""" 
+"""
 This is the python-colorply GUI.
 """
 
 import sys
 
 # PyQt
-from PyQt5.QtWidgets import QWidget, QPushButton, QApplication, QFileDialog, QLineEdit, QHBoxLayout, QVBoxLayout, QComboBox, QProgressBar, QLabel
-from PyQt5.QtCore import pyqtSignal, QThread   # Threading
+from PyQt5.QtWidgets import QWidget, QPushButton, QApplication, QFileDialog, QLineEdit, QHBoxLayout, QVBoxLayout, \
+    QComboBox, QProgressBar, QLabel
+from PyQt5.QtCore import pyqtSignal, QThread  # Threading
 
 # Colorply modules
 from colorply.process.improcess import add_cloud_channel
@@ -38,7 +38,7 @@ class RunThread(QThread):
         -------
         None.
         """
-        
+
         imDir = window.imageDirLine.text()
         oriDir = window.imageOri.text()
         imExt = "." + str(window.imageExt.currentText())
@@ -50,20 +50,20 @@ class RunThread(QThread):
         mode = window.modeDict[modestr]
 
         # A sexy way to check if none of the fields are empty
-        if len(oriDir)*len(imDir)*len(cal)*len(inPly)*len(outPly)*len(channel): 
-            
+        if len(oriDir) * len(imDir) * len(cal) * len(inPly) * len(outPly) * len(channel):
+
             try:
                 window.warningLabel.setVisible(False)
                 window.progress.setValue(1.0)
                 window.progress.setMaximum(1.0)
                 window.progress.setVisible(True)
                 var = add_cloud_channel(inPly, cal, oriDir, imDir, imExt, channel, mode, outPly, window.progress)
-                if var :
+                if var:
                     window.warningLabel.setText("All done !")
                     window.warningLabel.setVisible(True)
                 return
-                
-                
+
+
             except FileNotFoundError:
                 window.progress.setVisible(False)
                 window.warningLabel.setText("One of the files / folders has not been found.")
@@ -74,18 +74,13 @@ class RunThread(QThread):
             window.warningLabel.setVisible(True)
             window.progress.setVisible(False)
             return
-        
 
-
-
-    
 
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        #QThread.__init__(self)
+        # QThread.__init__(self)
         self.initUI()
-        
 
     def initUI(self):
         """
@@ -95,40 +90,37 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         self.setWindowTitle('Python-colorply')
 
-        hbox1=QHBoxLayout() # image directory line
-        hbox2=QHBoxLayout() # orientation image directory
-        hbox3=QHBoxLayout() # calibration directory line
-        hbox4=QHBoxLayout() # input ply line
-        hbox5=QHBoxLayout() # output ply line
-        hbox6=QHBoxLayout() # channel, compute method and run button line
-        hbox7=QHBoxLayout()
-        vbox=QVBoxLayout()
-        
+        hbox1 = QHBoxLayout()  # image directory line
+        hbox2 = QHBoxLayout()  # orientation image directory
+        hbox3 = QHBoxLayout()  # calibration directory line
+        hbox4 = QHBoxLayout()  # input ply line
+        hbox5 = QHBoxLayout()  # output ply line
+        hbox6 = QHBoxLayout()  # channel, compute method and run button line
+        hbox7 = QHBoxLayout()
+        vbox = QVBoxLayout()
+
         # Image extension
-        self.imageExt = QComboBox()     
+        self.imageExt = QComboBox()
         self.extList = ["JPG", "jpg", "TIF", "tif", "PNG", "png", "CR2", "DNG"]  # list of all extension available     
-        for k in range(len(self.extList)):                  # adding the possibilities
+        for k in range(len(self.extList)):  # adding the possibilities
             self.imageExt.addItem(self.extList[k])
         self.imageExt.setFixedWidth(50)
-        
+
         # Compute method
         self.computeMethod = QComboBox()
         # dictionnary of all methods available
-        self.modeDict = {                     
-                "Average" : "avg",
-                "Random" : "alea",
-                "Weighted Average" : "wavg",
-                "Distance" : "dist",
-                }
+        self.modeDict = {
+            "Average": "avg",
+            "Random": "alea",
+            "Weighted Average": "wavg",
+            "Distance": "dist",
+        }
         # adding the methods to a drop down menu
-        for k in self.modeDict:                
+        for k in self.modeDict:
             self.computeMethod.addItem(k)
-        
-
-    
 
         # Text lines
         self.imageDirLine = QLineEdit()
@@ -138,16 +130,15 @@ class MainWindow(QWidget):
         self.calibDirLine = QLineEdit()
         self.inPlyLine = QLineEdit()
         self.outPlyLine = QLineEdit()
-        
+
         self.warningLabel = QLabel("Error: please fill all the fields !")
         self.warningLabel.setVisible(False)
-
 
         # Buttons
         imageChooseButton = QPushButton("Choose your image folder")
         imageChooseButton.setFixedWidth(194)
         imageChooseButton.clicked.connect(self.select_image_dir)
-        
+
         oriChooseButton = QPushButton("Choose orientation folder")
         oriChooseButton.setFixedWidth(250)
         oriChooseButton.clicked.connect(self.select_ori_dir)
@@ -164,7 +155,7 @@ class MainWindow(QWidget):
         outPlyChooseButton.setFixedWidth(250)
         outPlyChooseButton.clicked.connect(self.select_output_ply)
 
-        computeButton= QPushButton("RUN")
+        computeButton = QPushButton("RUN")
         computeButton.clicked.connect(self.compute)
 
         # Progress bar
@@ -175,7 +166,7 @@ class MainWindow(QWidget):
         hbox1.addWidget(self.imageDirLine)
         hbox1.addWidget(imageChooseButton)
         hbox1.addWidget(self.imageExt)
-        
+
         hbox2.addWidget(self.imageOri)
         hbox2.addWidget(oriChooseButton)
 
@@ -195,19 +186,18 @@ class MainWindow(QWidget):
 
         hbox7.addWidget(self.progress)
         hbox7.addWidget(self.warningLabel)
-        
+
         vbox.addLayout(hbox1)
         vbox.addLayout(hbox2)
         vbox.addLayout(hbox3)
         vbox.addLayout(hbox4)
         vbox.addLayout(hbox5)
-        
+
         vbox.addStretch(1)
         vbox.addLayout(hbox6)
         vbox.addLayout(hbox7)
 
         self.setLayout(vbox)
-
 
     def select_image_dir(self):
         """
@@ -217,11 +207,11 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         fname = QFileDialog.getExistingDirectory(self, 'Select image directory')
         if fname:
             self.imageDirLine.setText(fname)
-            
+
     def select_ori_dir(self):
         """
         Select the MicMac orientation directory from the window.
@@ -230,11 +220,11 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         fname = QFileDialog.getExistingDirectory(self, 'Select image orientation directory')
         if fname:
             self.imageOri.setText(fname)
-    
+
     def select_calib_dir(self):
         """
         Select the MicMac calibration directory from the window.
@@ -243,7 +233,7 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         fname = QFileDialog.getOpenFileName(self, 'Select calibration file')
         if fname[0]:
             self.calibDirLine.setText(fname[0])
@@ -256,7 +246,7 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         fname = QFileDialog.getOpenFileName(self, 'Select input PLY file')
         if fname[0]:
             self.inPlyLine.setText(fname[0])
@@ -269,7 +259,7 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         fname = QFileDialog.getSaveFileName(self, 'Select output PLY file name')
         if fname[0]:
             self.outPlyLine.setText(fname[0])
@@ -282,10 +272,9 @@ class MainWindow(QWidget):
         -------
         None.
         """
-        
+
         thread = RunThread()
         thread.run(self)
-
 
 
 def colorply_window():
@@ -295,11 +284,10 @@ def colorply_window():
     Returns
     -------
     None.
-    """  
-    
+    """
+
     app = QApplication(sys.argv)
     app = set_dark_theme(app)
     window = MainWindow()
     window.show()
     app.exec_()
-    
