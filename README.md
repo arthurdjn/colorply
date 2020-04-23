@@ -15,8 +15,9 @@ This package comes with a **GUI**, to make tasks easier if you are not used to *
   <br>
 </p>
 
-The black and white image is the initial cloud of points created from one channel, RED.
-The colored image is the result of **Colorply**, adding the channel REG, NIR, GREEN.
+These models are models oriented in the same relative coordinate system. However, these models
+are composed of only one channel. **Colorply** merge any channels from any models, as long as they are 
+in the same coordinate system.
 
 ### About
 
