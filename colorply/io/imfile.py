@@ -5,13 +5,13 @@
 
 import matplotlib.pyplot as plt
 
-from os import getcwd, listdir, sep
-from os.path import isfile, join, exists
-from colorply.io.readxml import read_ori
+from os import listdir, sep
+from os.path import isfile, join
+from colorply.mm3d import read_ori
 from colorply.process.image import Image
 
 
-def load_images(orientation_dir, image_dir="", image_ext="TIF", channel="unknown"):
+def load_images(orientation_dir, image_dir=".", image_ext="TIF", channel="unk"):
     """ 
     Reads all images and returns a list of image objects
     
@@ -24,10 +24,16 @@ def load_images(orientation_dir, image_dir="", image_ext="TIF", channel="unknown
     images_loaded = []
 
     for file in files:
+        # Load the orientation
         orixml = orientation_dir + sep + "Orientation-" + file + ".xml"
-        R, S = read_ori(orixml)
+        ori = read_ori(orixml)
+        R, S = ori['R'], ori['S']
+
+        # Load the data
         data = plt.imread(image_dir + sep + file)
         img = Image(file, channel, data, R, S)
+
+        # Store it to a list
         images_loaded.append(img)
 
     return images_loaded

@@ -57,7 +57,7 @@ class RunThread(QThread):
                 window.progress.setValue(1.0)
                 window.progress.setMaximum(1.0)
                 window.progress.setVisible(True)
-                var = add_cloud_channel(inPly, cal, oriDir, imDir, imExt, channel, mode, outPly, window.progress)
+                var = add_cloud_channel(inPly, outPly, cal, oriDir, imDir, imExt, channel, mode, window.progress)
                 if var:
                     window.warningLabel.setText("All done !")
                     window.warningLabel.setVisible(True)
@@ -104,7 +104,7 @@ class MainWindow(QWidget):
 
         # Image extension
         self.imageExt = QComboBox()
-        self.extList = ["JPG", "jpg", "TIF", "tif", "PNG", "png", "CR2", "DNG"]  # list of all extension available     
+        self.extList = ["JPG", "jpg", "TIF", "tif", "PNG", "png", "CR2", "DNG"]  # list of all extension available
         for k in range(len(self.extList)):  # adding the possibilities
             self.imageExt.addItem(self.extList[k])
         self.imageExt.setFixedWidth(50)
@@ -277,7 +277,7 @@ class MainWindow(QWidget):
         thread.run(self)
 
 
-def colorply_window():
+def interface():
     """
     Create the main window of Colorply.
 

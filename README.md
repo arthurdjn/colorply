@@ -1,3 +1,5 @@
+![GitHub last commit](https://img.shields.io/github/last-commit/arthurdjn/colorply) ![GitHub stars](https://img.shields.io/github/stars/arthurdjn/colorply?style=social)
+
 # colorply
 
 **A multispectral photogrammetry application**
@@ -59,18 +61,18 @@ The interface is simple, but all options are linked !
   <br>
 </p>
 
-To use this package, simply 
+To use this package, run main.py or 
 
 ```python
-from colorply.ui import colorply_window
+from colorply.ui import interface
 
-colorply_window()
+interface()
 ```
 
 If you prefer doing it manually, you can use the functional implementation:
 
 ```python
-from colorply.process import add_cloud_channel
+from colorply import add_cloud_channel
 
 # Load the 3D model
 input_ply = "test/data/result/RVB_GRE.ply"
@@ -93,6 +95,19 @@ add_cloud_channel(input_ply, output_ply,
                   image_dir, image_ext, channel)
 ```
 
+You can also use the commandlines system
+
+```pycon
+$ python colorply   --inply path/to/input_ply
+                    --outply path/to/output_ply
+                    --calib path/to/calib_xml
+                    --oridir path/to/orientation_folder
+                    --imdir path/to/image_folder
+                    --imext image_extension
+                    --channel name_of_new_channel
+                    --mode mode_used_to_merge_new_radiometry
+```
+Use help --argument for additional information.
 
 #### How it works
 

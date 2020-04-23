@@ -4,12 +4,10 @@
 
 
 
-from colorply.ui import colorply_window
+from colorply.ui import interface
 
 
 
 
 if __name__ == "__main__":
-
-    colorply_window()
-    
+    interface()

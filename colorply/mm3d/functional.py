@@ -249,7 +249,7 @@ def read_calib(calibxml):
     coeffDist = []
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CoeffDist"):
         coeffDist.append(user.text)
-    coeffDist = np.array(coeffDist, float)
+    coeffDist = {'a': float(coeffDist[0]), 'b': float(coeffDist[1]), 'c': float(coeffDist[2])}
 
     for user in tree.xpath("/ExportAPERO/CalibrationInternConique/CalibDistortion/ModRad/CDist"):
         PPS = user.text.split(" ")

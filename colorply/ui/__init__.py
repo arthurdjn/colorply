@@ -3,4 +3,4 @@
 # @author: arthurd
 
 
-from colorply.ui.gui import colorply_window
+from colorply.ui.gui import interface
