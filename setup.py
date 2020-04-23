@@ -19,14 +19,14 @@ setup(name='colorply',
         description = 'MicMac application for multispectral photogrammetry.',
         long_description = readme_data(),
         long_description_content_type = "text/markdown",
-        url = 'https://github.uio.no/arthurd/colorply',
+        url = 'https://github.com/arthurdjn/colorply',
         author = 'Arthur Dujardin, Cédric Périon',
         author_email = 'arthur.dujardin@ensg.eu',
         license = 'MIT',
 
         install_requires = ['matplotlib', 'numpy', 'plyfile',
                             'lxml', 'PyQt5'],
-        packages = find_packages(),
+        packages = find_packages(exclude=("test", "pdf", "img", )),
         zip_safe  =False,
         classifiers = [
         # How mature is this project? Common values are

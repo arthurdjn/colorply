@@ -1,4 +1,4 @@
-![GitHub last commit](https://img.shields.io/github/last-commit/arthurdjn/colorply) ![GitHub stars](https://img.shields.io/github/stars/arthurdjn/colorply?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/arthurdjn/colorply) ![Website](https://img.shields.io/website?url=http%3A%2F%2Farthurdujardin.com%2Fproject%2Fcolorply.html) ![GitHub stars](https://img.shields.io/github/stars/arthurdjn/colorply?style=social)
 
 # colorply
 
