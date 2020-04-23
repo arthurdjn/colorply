@@ -2,6 +2,10 @@
 # Created on Sun Jul 14 10:17:54 2019
 # @author: Cédric Perion | Arthur Dujardin
 
+import warnings
+warnings.warn("colorply.io.readxml module is deprecated. Use colorply.mm3d.functional instead.",
+              DeprecationWarning)
+
 
 import numpy as np
 from lxml import etree
