@@ -16,7 +16,7 @@ This package comes with a **GUI**, to make tasks easier if you are not used to *
 </p>
 
 These models are models oriented in the same relative coordinate system. However, these models
-are composed of only one channel. **Colorply** merge any channels from any models, as long as they are 
+are composed of only one channel. **Colorply** merges any channels from any models, as long as they are 
 in the same coordinate system.
 
 ### About
