@@ -15,19 +15,18 @@ def readme_data():
 find_packages()
 
 setup(name='colorply',
-        version = '0.1',
+        version = '0.2',
         description = 'MicMac application for multispectral photogrammetry.',
         long_description = readme_data(),
         long_description_content_type = "text/markdown",
         url = 'https://github.uio.no/arthurd/colorply',
-        author = 'Arthur Dujardin, Cédric Pério',
+        author = 'Arthur Dujardin, Cédric Périon',
         author_email = 'arthur.dujardin@ensg.eu',
-        license = 'Apache License-2.0',
+        license = 'MIT',
 
-        install_requires = ['matplotlib', 'os', 'numpy', 'plyfile', 
-                            'lxml', 'math', 'random', 'sys', 'PyQt5'],
+        install_requires = ['matplotlib', 'numpy', 'plyfile',
+                            'lxml', 'PyQt5'],
         packages = find_packages(),
-        namespace_packages = ['colorply'],
         zip_safe  =False,
         classifiers = [
         # How mature is this project? Common values are
@@ -38,7 +37,7 @@ setup(name='colorply',
     
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Multispectral photogrammetry',
+        'Topic :: Software Development :: Multispectral Photogrammetry',
     
         # Pick your license as you wish (should match "license" above)
     
