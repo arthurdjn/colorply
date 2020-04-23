@@ -1,3 +1,8 @@
+"""
+Load a set of images with their orientation.
+"""
+
+
 # -*- coding: utf-8 -*-
 # Created on Sat Feb  8 12:50:37 2020
 # @author: arthurd

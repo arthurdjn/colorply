@@ -1,3 +1,6 @@
+"""
+Set colors and theme to the interface.
+"""
 # -*- coding: utf-8 -*-
 # Created on Sat Jul 13 20:53:48 2019
 # @author: arthurd

@@ -1,11 +1,10 @@
+"""
+Contains reading and writing functions for ply files as well as a conversion function and other useful functions related to ply files
+"""
 # -*- coding: utf-8 -*-
 # Created on Sun Jul 14 10:17:54 2019
 # @author: Cédric Perion | Arthur Dujardin
 
-
-"""
-Contains reading and writing functions for ply files as well as a conversion function and other useful functions related to ply files
-"""
 
 import numpy as np
 import plyfile

@@ -1,12 +1,10 @@
+"""
+This module recieves instruction from the ui and call the appropriate
+functions on the appropriate parameters.
+"""
 # -*- coding: utf-8 -*-
 # Created on Sat Jul 13 20:53:48 2019
 # @author: arthurd
-
-
-""" 
-This module recieves instruction from the ui and call the appropriate 
-functions on the appropriate parameters.
-"""
 
 import os
 

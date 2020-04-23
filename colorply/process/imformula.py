@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-# Created on Sun Jul 14 10:17:54 2019
-# @author: Cédric Perion | Arthur Dujardin
-
 """
 This modules contains the necessary functions to compute the image formula for each "ground" point.
 """
+# -*- coding: utf-8 -*-
+# Created on Sun Jul 14 10:17:54 2019
+# @author: Cédric Perion | Arthur Dujardin
 
 import numpy as np
 
@@ -29,8 +28,8 @@ def image_formula(F, M, R, S):
     -------
     numpy.ndarray
         Image coordinates of M projected.
-    """
 
+    """
     k = np.array([0, 0, 1])
     R_inv = np.linalg.inv(R)
     top = k.dot(F) * R_inv.dot(M - S)
@@ -40,16 +39,19 @@ def image_formula(F, M, R, S):
 
 
 def radial_std(m_image, pps, a, b, c):
-    """
-    Corrects the postion of the point according to the standard radial distorsion model.
-    
+    r"""
+    Corrects the postion of the point according
+    to the standard radial distorsion model.
+
+    .. note::
+        We use Horner's method to evaluate :math:`ar^2 + br^4 + cr^6`
 
     Parameters
     ----------
     m_image : numpy.ndarray
         Position of the projected point in pixel.
     pps : numpy.ndarray
-        Position of the point of 0 distorsion ine the radial_std model.
+        Position of the point of 0 distorsion in the radial model.
     a : float
         3rd order coefficient of the distorsion polynomial.
     b : float
@@ -61,17 +63,17 @@ def radial_std(m_image, pps, a, b, c):
     -------
     numpy.ndarray
         Corrected point position.
+
     """
-
     r = np.linalg.norm(m_image - pps)
-
     rsquared = r * r
-    # We use HORNER to evaluate ar2+br4+cr6
+
+    # Horner's method
     poly = c
     poly = poly * rsquared + b
     poly = poly * rsquared + a
     poly = poly * rsquared
-    # HORNER DONE
+
     # Correction vector
     dr = poly * (m_image - pps)
 
@@ -106,6 +108,6 @@ def image_formula_corrected(F, M, R, S, pps, a, b, c):
     -------
     numpy.ndarray
         Corrected point position.
-    """
 
+    """
     return radial_std(image_formula(F, M, R, S), pps, a, b, c)

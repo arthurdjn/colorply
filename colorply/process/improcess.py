@@ -1,10 +1,10 @@
+"""
+Module to preprocess images.
+"""
 # -*- coding: utf-8 -*-
 # Created on Sun Jul 14 10:17:54 2019
 # @author: Cédric Perion | Arthur Dujardin
 
-"""
-Module to preprocess images.
-"""
 
 import random
 import numpy as np
@@ -31,8 +31,8 @@ def radiometry_projection(M, images_loaded, calibration, mode="avg", scale=0.003
         List of the image loaded. 
         These images need to be referenced in the same system as the point M.
         Usually with MicMac calibrate all the images together.
-    calibration : list
-        List containing the camera calibration global parameters.
+    calibration : dict
+        dict containing the camera calibration global parameters.
     mode : str, optional
         The way the new radiometry is stacked in the new M channel. 
         This can be with a mean of all radiometry that see the 3D point M. 
@@ -171,7 +171,6 @@ def add_cloud_channel(input_ply, output_ply, calibration_file, orientation_dir, 
 
     # Process finished
     return True
-
 
 # TODO: in a seaparate file, functional.py
 # Functional functions, used as mode to merge radiometries
