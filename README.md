@@ -1,4 +1,7 @@
-![GitHub last commit](https://img.shields.io/github/last-commit/arthurdjn/colorply) [![Website](https://img.shields.io/website?url=http%3A%2F%2Farthurdujardin.com%2Fproject%2Fcolorply.html)](http://arthurdujardin.com/project/colorply.html) ![GitHub stars](https://img.shields.io/github/stars/arthurdjn/colorply?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/arthurdjn/colorply) 
+[![](https://img.shields.io/readthedocs/colorply)](https://colorply.readthedocs.io/en/latest/index.html)
+[![Website](https://img.shields.io/website?url=http%3A%2F%2Farthurdujardin.com%2Fproject%2Fcolorply.html)](http://arthurdujardin.com/project/colorply.html) 
+![GitHub stars](https://img.shields.io/github/stars/arthurdjn/colorply?style=social)
 
 # colorply
 
