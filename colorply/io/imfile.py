@@ -17,9 +17,24 @@ from colorply.process.image import Image
 
 
 def load_images(orientation_dir, image_dir=".", image_ext="TIF", channel="unk"):
-    """ 
+    """
     Reads all images and returns a list of image objects
-    
+
+    Parameters
+    ----------
+    orientation_dir: str
+        orientation directory of MicMac files
+    image_dir: str
+        image directory
+    image_ext: str
+        image extensiton (ex: 'TIFF')
+    channel: str
+        name of the channel
+
+    Returns
+    -------
+        list(Image)
+
     """
     try:
         files = [f for f in listdir(image_dir) if (isfile(join(image_dir, f)) and f.split('.')[-1] == image_ext)]
