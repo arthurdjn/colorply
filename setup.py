@@ -23,10 +23,8 @@ setup(name='colorply',
       author='Arthur Dujardin, Cédric Périon',
       author_email='arthur.dujardin@ensg.eu',
       license='MIT',
-
       install_requires=['matplotlib', 'numpy', 'plyfile',
                         'lxml', 'PyQt5'],
-      packages=find_packages(exclude=("test", "pdf", "img",)),
       zip_safe=False,
       classifiers=[
           # How mature is this project? Common values are
