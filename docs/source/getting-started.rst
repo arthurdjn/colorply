@@ -80,9 +80,9 @@ To use this package, run main.py or
 
 .. code-block:: python
 
-from colorply.ui import interface
+    from colorply.ui import interface
 
-interface()
+    interface()
 
 
 If you prefer doing it manually, you can use the functional implementation:
